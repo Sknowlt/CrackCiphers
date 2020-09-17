@@ -9,7 +9,6 @@
 double calculateIndexOfCoincidence(char* message){
 
     double result = 0.0;
-    char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
     int characterFrequency[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int N = strlen(message);
     int currChar;
@@ -19,11 +18,6 @@ double calculateIndexOfCoincidence(char* message){
         characterFrequency[currChar]++;
     }
 
-    for(int cnt = 0; cnt < 26; cnt++){
-        fprintf(stdout, "%d\n", characterFrequency[cnt]);
-    }
-
-    //Summation
     for(int j = 0; j < 26; j++){
         result += ((double)(characterFrequency[j] * (characterFrequency[j]-1))/ (double)(N * (N-1)));
     }

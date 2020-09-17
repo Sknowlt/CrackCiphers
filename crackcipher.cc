@@ -44,7 +44,7 @@ int main(int argc, char** argv){
 
     fprintf(stdout, "Calculating Index of Coincidence.\n");
     double indexOfCoincidence = calculateIndexOfCoincidence(fileTextArray);
-    fprintf(stdout, "Index of Coincidence: %f", indexOfCoincidence);
+    fprintf(stdout, "Index of Coincidence: %f\n", indexOfCoincidence);
 
 
 }
