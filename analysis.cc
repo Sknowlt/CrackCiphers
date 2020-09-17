@@ -1,10 +1,34 @@
 #include "analysis.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstring>
+#include <cstdlib>
 
-//TODO
+
 double calculateIndexOfCoincidence(char* message){
 
-    return 0.0;
+    double result = 0.0;
+    char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+    int characterFrequency[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int N = strlen(message);
+    int currChar;
 
+    for(int i = 0; i <strlen(message); i++){
+        currChar = message[i] - 65;
+        characterFrequency[currChar]++;
+    }
+
+    for(int cnt = 0; cnt < 26; cnt++){
+        fprintf(stdout, "%d\n", characterFrequency[cnt]);
+    }
+
+    //Summation
+    for(int j = 0; j < 26; j++){
+        result += ((double)(characterFrequency[j] * (characterFrequency[j]-1))/ (double)(N * (N-1)));
+    }
+
+    return result;
 }
 
 //TODO
