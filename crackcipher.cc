@@ -11,6 +11,8 @@ using namespace std;
 
 int verbose = 0;
 
+
+
 int main(int argc, char** argv){
 
     if(argc < 2){
@@ -38,15 +40,25 @@ int main(int argc, char** argv){
     }
 
     string fileText { istreambuf_iterator<char>(fileInput), istreambuf_iterator<char>() };
-    fprintf(stdout, "File opened successfuly. Starting to decipher.\n");
-    char* fileTextArray = (char*) malloc(sizeof(char)*(fileText.length()+1));
-    strcpy(fileTextArray, fileText.c_str());
+    fprintf(stdout, "File opened successfuly. Starting to decipher...\n");
+    
 
-    fprintf(stdout, "Calculating Index of Coincidence.\n");
-    double indexOfCoincidence = calculateIndexOfCoincidence(fileTextArray);
-    fprintf(stdout, "Index of Coincidence: %f\n", indexOfCoincidence);
+    fprintf(stdout, "Calculating Index of Coincidence...\n\n");
+    double indexOfCoincidence = calculateIndexOfCoincidence(fileText);
+    fprintf(stdout, "Index of Coincidence: %f\n\n", indexOfCoincidence);
+    
+    if(indexOfCoincidence > 0.055){
+        fprintf(stdout, "Possible monoalphabetic encryption detected due to high IoC.\n"); 
+    } else {
+        fprintf(stdout, "Possible polyalphabetic encryption detected due to low IoC.\n");
+    }
+   
+    
+    fprintf(stdout, "Starting Frequency Analysis...\n");
+    displayFrequencyAnalysis(fileText);
 
 
+    
 }
 
 
