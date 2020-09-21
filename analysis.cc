@@ -1,4 +1,5 @@
 #include "analysis.h"
+#include "cipher.h"
 #include <iostream> 
 #include <iterator> 
 #include <map> 
@@ -12,6 +13,10 @@ using namespace std;
 
 
 double calculateIndexOfCoincidence(string message){
+    fprintf(stdout, "Calculating Index of Coincidence...\n\n");
+    
+    
+
     double result = 0.0;
     int characterFrequency[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int N = message.length();
@@ -23,6 +28,7 @@ double calculateIndexOfCoincidence(string message){
     for(int j = 0; j < 26; j++){
         result += ((double)(characterFrequency[j] * (characterFrequency[j]-1))/ (double)(N * (N-1)));
     }
+    fprintf(stdout, "Index of Coincidence: %f\n\n", result);
     return result;
 }
 
@@ -89,6 +95,14 @@ void displayFrequencyAnalysis(string message){
     fprintf(stdout, "\n");
 
 }
+
+//TODO
+string determineCipherAndCrackCipher(string message){
+    
+    return NULL;
+
+}
+
 
 //TODO
 double calculateShiftedIndexOfCoincidence(char* message){

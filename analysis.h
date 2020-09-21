@@ -11,8 +11,10 @@
 
 using namespace std;
 
+
 double calculateIndexOfCoincidence(string message);
 void displayFrequencyAnalysis(string message);
+string determineCipherAndCrackCipher(string message);
 double calculateShiftedIndexOfCoincidence(char* message);
 double calculateKasiskiTest(char* message);
 

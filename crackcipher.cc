@@ -43,9 +43,9 @@ int main(int argc, char** argv){
     fprintf(stdout, "File opened successfuly. Starting to decipher...\n");
     
 
-    fprintf(stdout, "Calculating Index of Coincidence...\n\n");
+    
     double indexOfCoincidence = calculateIndexOfCoincidence(fileText);
-    fprintf(stdout, "Index of Coincidence: %f\n\n", indexOfCoincidence);
+    
     
     if(indexOfCoincidence > 0.055){
         fprintf(stdout, "Possible monoalphabetic encryption detected due to high IoC.\n"); 
@@ -57,7 +57,7 @@ int main(int argc, char** argv){
     fprintf(stdout, "Starting Frequency Analysis...\n");
     displayFrequencyAnalysis(fileText);
 
-
+    
     
 }
 
