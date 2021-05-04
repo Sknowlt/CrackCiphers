@@ -42,23 +42,11 @@ int main(int argc, char** argv){
     string fileText { istreambuf_iterator<char>(fileInput), istreambuf_iterator<char>() };
     fprintf(stdout, "File opened successfuly. Starting to decipher...\n");
     
+    determineCipherAndCrackCipher(fileText);
 
-    
-    double indexOfCoincidence = calculateIndexOfCoincidence(fileText);
-    
-    
-    if(indexOfCoincidence > 0.055){
-        fprintf(stdout, "Possible monoalphabetic encryption detected due to high IoC.\n"); 
-    } else {
-        fprintf(stdout, "Possible polyalphabetic encryption detected due to low IoC.\n");
-    }
-   
-    
-    fprintf(stdout, "Starting Frequency Analysis...\n");
-    displayFrequencyAnalysis(fileText);
+    fileInput.close();
 
-    
-    
+    fprintf(stdout, "Program Terminated\n");
 }
 
 

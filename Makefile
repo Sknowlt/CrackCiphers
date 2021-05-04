@@ -12,3 +12,6 @@ analysis.o: analysis.cc analysis.h
 
 dirclean:
 	del *.o *.out *.exe
+
+linuxdirclean:
+	rm -f CrackCipher *.o *.out *.exe

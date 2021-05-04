@@ -19,6 +19,9 @@ string decryptShiftCipher(string message, int key){
     for(int i = 0; i < message.length(); i++){
         charValue = message.at(i) - 65;
         newCharValue = (charValue - key) % 26;
+        if(newCharValue < 0){
+            newCharValue += 26;
+        }
         plaintext += (char)(newCharValue + 65);
     }
 
